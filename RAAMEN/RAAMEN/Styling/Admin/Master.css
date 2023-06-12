@@ -2,6 +2,10 @@
     margin: 0;
     padding: 0;
 }
+body{
+    min-height:100vh;
+    background-color:lightgray;
+}
 
 nav{
     display:flex;

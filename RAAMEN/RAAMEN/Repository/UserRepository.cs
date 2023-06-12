@@ -28,5 +28,14 @@ namespace RAAMEN.Repository
 
             return role;
         }
+
+        public static List<User> getAllUserByRoleId(int roleId)
+        {
+            List<User> listUser = (from u in db.Users
+                               where u.RoleId == roleId
+                               select u).ToList();
+
+            return listUser;
+        }
     }
 }
