@@ -69,7 +69,7 @@ namespace RAAMEN.View
                     cookie.Values.Add("username", username);
                     cookie.Values.Add("password", password);
 
-                    cookie.Expires = DateTime.Now.AddMinutes(1);
+                    cookie.Expires = DateTime.Now.AddMinutes(30);
 
                     Response.Cookies.Add(cookie);//nambahin cookie ke app
                 }
