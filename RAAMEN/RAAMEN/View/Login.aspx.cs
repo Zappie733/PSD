@@ -14,19 +14,6 @@ namespace RAAMEN.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if(Session["admin_session"] != null)
-            //{
-            //    Response.Redirect("./Admin/Home.aspx");
-            //}
-            //else if(Session["staff_session"] != null)
-            //{
-            //    Response.Redirect("./Staff/Home.aspx");
-            //}
-            //else if(Session["customer_session"] != null)
-            //{
-            //    Response.Redirect("./Customer/Home.aspx");
-            //}
-
             if (!IsPostBack)
             {
                 if (Session["admin_session"] != null || Session["staff_session"] != null || Session["customer_session"] != null)
@@ -73,10 +60,6 @@ namespace RAAMEN.View
 
                     Response.Cookies.Add(cookie);//nambahin cookie ke app
                 }
-                //else if(remember == false)
-                //{
-
-                //}
 
                 //bikin session
                 User user = UserFactory.createUserForSession(username, password);

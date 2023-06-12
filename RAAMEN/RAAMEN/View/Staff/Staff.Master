@@ -17,13 +17,13 @@
                 <a href="Home.aspx">Home</a>
             </div>
             <div class="option">
-                <a href="">Manage Ramen</a>
+                <a href="ManageRamen.aspx">Manage Ramen</a>
             </div>
             <div class="option">
-                <a href="">Order Queue</a>
+                <a href="OrderQueue.aspx">Order Queue</a>
             </div>
             <div class="option"v>
-                <a href="">Profile</a>
+                <a href="Profile.aspx">Profile</a>
             </div>
             <div class="option">
                 <%--<a href="../Login.aspx">Logout</a>--%>
