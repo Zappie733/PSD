@@ -1,0 +1,71 @@
+CREATE TABLE [dbo].[Role] (
+    [Id]   INT          NOT NULL,
+    [Name] VARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+CREATE TABLE [dbo].[User] (
+    [Id]       INT          IDENTITY(1,1) NOT NULL,
+    [RoleId]   INT          NULL,
+    [Username] VARCHAR (50) NULL,
+    [Email]    VARCHAR (50) NULL,
+    [Gender]   VARCHAR (50) NULL,
+    [Password] VARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_User_Role] FOREIGN KEY ([RoleId]) REFERENCES [dbo].[Role] ([Id])
+);
+
+
+CREATE TABLE [dbo].[Header] (
+    [Id]         INT  IDENTITY(1,1) NOT NULL,
+    [CustomerId] INT  NULL,
+    [StaffId]    INT  NULL,
+    [Date]       DATE NULL,
+	[Status] Bit NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Header_UserCustomer] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[User] ([Id]),
+    CONSTRAINT [FK_Header_UserStaff] FOREIGN KEY ([StaffId]) REFERENCES [dbo].[User] ([Id])
+);
+
+
+CREATE TABLE [dbo].[Cart] (
+    [CustomerId] INT NOT NULL,
+    [HeaderId]   INT NOT NULL,
+	[CreatedDate)] Date NULL, 
+    PRIMARY KEY CLUSTERED ([CustomerId] ASC, [HeaderId] ASC),
+    CONSTRAINT [FK_Cart_User] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[User] ([Id]),
+    CONSTRAINT [FK_Cart_Header] FOREIGN KEY ([HeaderId]) REFERENCES [dbo].[Header] ([Id])
+);
+
+
+
+CREATE TABLE [dbo].[Meat] (
+    [Id]   INT        IDENTITY(1,1) NOT NULL,
+    [Name] VARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+
+CREATE TABLE [dbo].[Ramen] (
+    [Id]     INT          IDENTITY(1,1) NOT NULL,
+    [MeatId] INT          NULL,
+    [Name]   VARCHAR (50) NULL,
+    [Broth]  VARCHAR (50) NULL,
+    [Price]  VARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Ramen_Meat] FOREIGN KEY ([MeatId]) REFERENCES [dbo].[Meat] ([Id])
+);
+
+
+CREATE TABLE [dbo].[Detail]
+(
+	[HeaderId] INT NOT NULL, 
+    [RamenId] INT NOT NULL,
+    [Quantity] INT NULL, 
+    PRIMARY KEY ([HeaderId], [RamenId]),
+    CONSTRAINT [FK_Detail_Header] FOREIGN KEY ([HeaderId]) REFERENCES [Header]([Id]),
+	CONSTRAINT [FK_Detail_Ramen] FOREIGN KEY ([RamenId]) REFERENCES [Ramen]([Id])
+)
+

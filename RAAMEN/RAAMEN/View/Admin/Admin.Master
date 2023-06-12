@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="RAAMEN.View.Admin.Admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Admin Master</title>
+    <meta name="viewport" content="width=device-width, scale=1.0" />
+    <link href="../../Styling/Admin/Master.css" rel="stylesheet" type="text/css" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav>
+            <div class="option">
+                <a href="Home.aspx">Home</a>
+            </div>
+            <div class="option">
+                <a href="">Manage Ramen</a>
+            </div>
+            <div class="option">
+                <a href="">Order Queue</a>
+            </div>
+            <div class="option">
+                <a href="">Profile</a>
+            </div>
+            <div class="option">
+                <a href="">History</a>
+            </div>
+            <div class="option">
+                <a href="">Report</a>
+            </div>
+            <div class="option">
+                <%--<a href="../Login.aspx">Logout</a>--%>
+                <asp:LinkButton ID="LogoutLinkButton" runat="server" OnClick="LogoutLinkButton_Click">Logout</asp:LinkButton>
+            </div>
+            <div class="role">
+                <asp:Label ID="UserRoleLabel" runat="server" Text=""></asp:Label>
+            </div>
+        </nav>
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

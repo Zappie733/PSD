@@ -1,0 +1,52 @@
+Hal yang dikumpul
+- jawaban (inget harus pake view, controler, handler,, repository, factory, dan model)
+	-View (tampilan)
+	-Controller (validasi input dan manggil method untuk proses backend)
+	-Handler (bisnis logic, mendelegasikan perintah query(select,insert,dll) ke repository
+	-Repository (berhubungan dengan model dan data daam database)
+	-Factory (buat bikin object yang kompleks seperti ketika ingin create object yang memiliki hubungan dengan object lain)
+	-Model (model data yang bisa digunakan untuk memanipuasi data dalam database)
+
+- link gambar (jika pake gambar) (pdf)
+
+- penjelasan singkat mengenai aplikasi yang dibuat (ada disoal) (pdf)
+
+
+PEMBAGIAN TUGAS:
+•	Staff
+	View Customers
+	Insert Ramen
+	Update Ramen
+	Delete Ramen
+	View Profile
+	Update Profile
+	View Unhandled Orders
+	View Handled Orders
+	Handle Orders
+	Login
+	Logout
+
+•	Member
+	View Ramen
+	Order Ramen
+	Add Ramen Order to cart 
+	Clear Cart
+	Buy All Ramen in Cart
+	View Transactions History
+	View Transaction Detail
+	View Profile
+	Update Profile
+	Login
+	Logout
+
+•	Admin
+	Login
+	Register
+	View Customer
+	View Staffs
+	All Member & Staff Privilege
+	View All Transaction
+	View Report
+
+JANGAN LUPA BACA DESCRIPTION DI WORD SEBAGAI PANDUAN PEMBUATAN.
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="29d3c65583b14af1bf46da1783a1ca60" Name="Diagram1">
+        <EntityTypeShape EntityType="DatabaseRaamenModel.Cart" Width="1.5" PointX="7.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRaamenModel.Detail" Width="1.5" PointX="7.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRaamenModel.Header" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRaamenModel.Meat" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRaamenModel.Ramen" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRaamenModel.Role" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRaamenModel.User" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <AssociationConnector Association="DatabaseRaamenModel.FK_Cart_Header" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseRaamenModel.FK_Cart_User" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseRaamenModel.FK_Detail_Header" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseRaamenModel.FK_Detail_Ramen" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseRaamenModel.FK_Header_UserCustomer" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseRaamenModel.FK_Header_UserStaff" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseRaamenModel.FK_Ramen_Meat" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseRaamenModel.FK_User_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
