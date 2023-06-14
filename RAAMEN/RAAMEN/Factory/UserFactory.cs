@@ -19,19 +19,19 @@ namespace RAAMEN.Factory
             {
                 newUser.RoleId = 2;
             }
-            else if (role.Equals("member"))
+            else if (role.Equals("customer"))
             {
                 newUser.RoleId = 3;
             }
 
             return newUser;
         }
-        public static User createUserForSession(string username, string password)
-        {
-            User user = new User();
-            user.Username = username;
-            user.Password = password;
-            return user;
-        }
+        //public static User createUserForSession(string username, string password)
+        //{
+        //    User user = new User();
+        //    user.Username = username;
+        //    user.Password = password;
+        //    return user;
+        //}
     }
 }

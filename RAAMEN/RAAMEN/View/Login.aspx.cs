@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using RAAMEN.Controller;
 using RAAMEN.Factory;
 using RAAMEN.Model;
+using RAAMEN.Repository;
 
 namespace RAAMEN.View
 {
@@ -30,6 +31,23 @@ namespace RAAMEN.View
                     //usernameTextBox.Text = cookie.Values["username"];
                     usernameTextBox.Text = cookie.Values.Get("username");
                     passwordTextBox.Text = cookie.Values.Get("password");
+                    User user = UserRepository.getUser(usernameTextBox.Text, passwordTextBox.Text);
+
+                    if (user.RoleId == 1)
+                    {
+                        Session["admin_session"] = user;
+                        Response.Redirect("./Admin/Home.aspx");
+                    }
+                    else if (user.RoleId == 2)
+                    {
+                        Session["staff_session"] = user;
+                        Response.Redirect("./Staff/Home.aspx");
+                    }
+                    else if (user.RoleId == 3)
+                    {
+                        Session["customer_session"] = user;
+                        Response.Redirect("./Customer/Home.aspx");
+                    }
                 }
             }
         }
@@ -62,7 +80,8 @@ namespace RAAMEN.View
                 }
 
                 //bikin session
-                User user = UserFactory.createUserForSession(username, password);
+                //User user = UserFactory.createUserForSession(username, password);
+                User user = UserRepository.getUser(username, password);
 
                 if (message == "admin")
                 {

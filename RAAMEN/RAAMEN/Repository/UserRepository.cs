@@ -37,5 +37,40 @@ namespace RAAMEN.Repository
 
             return listUser;
         }
+
+        public static List<string> getAllUsername()
+        {
+            List<string> listUser = (from u in db.Users
+                                     select u.Username).ToList();
+
+            return listUser;
+        }
+
+        public static List<string> updateUser(string username, string email, string gender, string password, string curUsername)
+        {
+            List<string> messages = new List<string>();
+
+            User user = getUser(curUsername, password);
+
+            if(!username.Equals(user.Username))
+            {
+                user.Username = username;
+                messages.Add("username");
+            }
+            if (!email.Equals(user.Email))
+            {
+                user.Email = email;
+                messages.Add("email");
+            }
+            if (!gender.Equals(user.Gender))
+            {
+                user.Gender = gender;
+                messages.Add("gender");
+            }
+
+            db.SaveChanges();
+
+            return messages;
+        }
     }
 }

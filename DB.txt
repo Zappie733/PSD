@@ -22,22 +22,19 @@ CREATE TABLE [dbo].[Header] (
     [CustomerId] INT  NULL,
     [StaffId]    INT  NULL,
     [Date]       DATE NULL,
-	[Status] Bit NULL,
+	[StatusId] INT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_Header_UserCustomer] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[User] ([Id]),
-    CONSTRAINT [FK_Header_UserStaff] FOREIGN KEY ([StaffId]) REFERENCES [dbo].[User] ([Id])
+    CONSTRAINT [FK_Header_UserStaff] FOREIGN KEY ([StaffId]) REFERENCES [dbo].[User] ([Id]),
+	CONSTRAINT [FK_Header_Status] FOREIGN KEY ([StatusId]) REFERENCES [dbo].[Status] ([Id])
 );
 
 
-CREATE TABLE [dbo].[Cart] (
-    [CustomerId] INT NOT NULL,
-    [HeaderId]   INT NOT NULL,
-	[CreatedDate)] Date NULL, 
-    PRIMARY KEY CLUSTERED ([CustomerId] ASC, [HeaderId] ASC),
-    CONSTRAINT [FK_Cart_User] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[User] ([Id]),
-    CONSTRAINT [FK_Cart_Header] FOREIGN KEY ([HeaderId]) REFERENCES [dbo].[Header] ([Id])
+CREATE TABLE [dbo].[Status](
+	[Id]   INT          NOT NULL,
+   	[Name] VARCHAR (50) NULL,
+    	PRIMARY KEY CLUSTERED ([Id] ASC) 
 );
-
 
 
 CREATE TABLE [dbo].[Meat] (
@@ -69,3 +66,15 @@ CREATE TABLE [dbo].[Detail]
 	CONSTRAINT [FK_Detail_Ramen] FOREIGN KEY ([RamenId]) REFERENCES [Ramen]([Id])
 )
 
+
+
+
+TABEL CART TIDAK JADI DIPAKAI, ALRERNATIFNYA ADALAH MEMBUAT TABEL STATUS UNTUK MEMBEDAKAN HANDLED, UN HANDLED, DAN CART.
+CREATE TABLE [dbo].[Cart] (
+    [CustomerId] INT NOT NULL,
+    [HeaderId]   INT NOT NULL,
+	[CreatedDate)] Date NULL, 
+    PRIMARY KEY CLUSTERED ([CustomerId] ASC, [HeaderId] ASC),
+    CONSTRAINT [FK_Cart_User] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[User] ([Id]),
+    CONSTRAINT [FK_Cart_Header] FOREIGN KEY ([HeaderId]) REFERENCES [dbo].[Header] ([Id])
+);

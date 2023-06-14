@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 using RAAMEN.Handler;
+using RAAMEN.Repository;
 
 namespace RAAMEN.Controller
 {
@@ -12,6 +13,8 @@ namespace RAAMEN.Controller
         public static string checkUsername(string username)
         {
             string message = "";
+            List<string> listUsername = RegisterRepository.getAllUsername();
+            
             if (username.Equals(""))
             {
                 message = "username cannot be empty";
@@ -24,6 +27,11 @@ namespace RAAMEN.Controller
             {
                 message = "username must contain only alphabet characters and spaces";
             }
+            else if (listUsername.Contains(username))
+            {
+                message = "username had been taken";
+            }
+
             return message;
         }
         public static string checkEmail(string email)

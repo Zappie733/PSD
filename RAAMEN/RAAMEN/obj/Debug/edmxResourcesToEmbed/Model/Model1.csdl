@@ -1,16 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DatabaseRaamenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Cart">
-    <Key>
-      <PropertyRef Name="CustomerId" />
-      <PropertyRef Name="HeaderId" />
-    </Key>
-    <Property Name="CustomerId" Type="Int32" Nullable="false" />
-    <Property Name="HeaderId" Type="Int32" Nullable="false" />
-    <Property Name="CreatedDate_" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="Header" Relationship="Self.FK_Cart_Header" FromRole="Cart" ToRole="Header" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Cart_User" FromRole="Cart" ToRole="User" />
-  </EntityType>
   <EntityType Name="Detail">
     <Key>
       <PropertyRef Name="HeaderId" />
@@ -20,7 +9,7 @@
     <Property Name="RamenId" Type="Int32" Nullable="false" />
     <Property Name="Quantity" Type="Int32" />
     <NavigationProperty Name="Header" Relationship="Self.FK_Detail_Header" FromRole="Detail" ToRole="Header" />
-    <NavigationProperty Name="Raman" Relationship="Self.FK_Detail_Ramen" FromRole="Detail" ToRole="Ramen" />
+    <NavigationProperty Name="Ramen" Relationship="Self.FK_Detail_Ramen" FromRole="Detail" ToRole="Ramen" />
   </EntityType>
   <EntityType Name="Header">
     <Key>
@@ -30,9 +19,9 @@
     <Property Name="CustomerId" Type="Int32" />
     <Property Name="StaffId" Type="Int32" />
     <Property Name="Date" Type="DateTime" Precision="0" />
-    <Property Name="Status" Type="Boolean" />
-    <NavigationProperty Name="Carts" Relationship="Self.FK_Cart_Header" FromRole="Header" ToRole="Cart" />
+    <Property Name="StatusId" Type="Int32" />
     <NavigationProperty Name="Details" Relationship="Self.FK_Detail_Header" FromRole="Header" ToRole="Detail" />
+    <NavigationProperty Name="Status" Relationship="Self.FK_Header_Status" FromRole="Header" ToRole="Status" />
     <NavigationProperty Name="User" Relationship="Self.FK_Header_UserCustomer" FromRole="Header" ToRole="User" />
     <NavigationProperty Name="User1" Relationship="Self.FK_Header_UserStaff" FromRole="Header" ToRole="User" />
   </EntityType>
@@ -64,6 +53,14 @@
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Users" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
   </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Headers" Relationship="Self.FK_Header_Status" FromRole="Status" ToRole="Header" />
+  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="Id" />
@@ -74,35 +71,10 @@
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Carts" Relationship="Self.FK_Cart_User" FromRole="User" ToRole="Cart" />
     <NavigationProperty Name="Headers" Relationship="Self.FK_Header_UserCustomer" FromRole="User" ToRole="Header" />
     <NavigationProperty Name="Headers1" Relationship="Self.FK_Header_UserStaff" FromRole="User" ToRole="Header" />
     <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
   </EntityType>
-  <Association Name="FK_Cart_Header">
-    <End Role="Header" Type="Self.Header" Multiplicity="1" />
-    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Header">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Cart">
-        <PropertyRef Name="HeaderId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Cart_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Cart">
-        <PropertyRef Name="CustomerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Detail_Header">
     <End Role="Header" Type="Self.Header" Multiplicity="1" />
     <End Role="Detail" Type="Self.Detail" Multiplicity="*" />
@@ -124,6 +96,18 @@
       </Principal>
       <Dependent Role="Detail">
         <PropertyRef Name="RamenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Header_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Header" Type="Self.Header" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Header">
+        <PropertyRef Name="StatusId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -176,21 +160,13 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="DatabaseRaamenEntities1" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Carts" EntityType="Self.Cart" />
     <EntitySet Name="Details" EntityType="Self.Detail" />
     <EntitySet Name="Headers" EntityType="Self.Header" />
     <EntitySet Name="Meats" EntityType="Self.Meat" />
     <EntitySet Name="Ramen1" EntityType="DatabaseRaamenModel.Ramen" />
     <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Status" EntityType="Self.Status" />
     <EntitySet Name="Users" EntityType="Self.User" />
-    <AssociationSet Name="FK_Cart_Header" Association="Self.FK_Cart_Header">
-      <End Role="Header" EntitySet="Headers" />
-      <End Role="Cart" EntitySet="Carts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Cart_User" Association="Self.FK_Cart_User">
-      <End Role="User" EntitySet="Users" />
-      <End Role="Cart" EntitySet="Carts" />
-    </AssociationSet>
     <AssociationSet Name="FK_Detail_Header" Association="Self.FK_Detail_Header">
       <End Role="Header" EntitySet="Headers" />
       <End Role="Detail" EntitySet="Details" />
@@ -198,6 +174,10 @@
     <AssociationSet Name="FK_Detail_Ramen" Association="Self.FK_Detail_Ramen">
       <End Role="Ramen" EntitySet="Ramen1" />
       <End Role="Detail" EntitySet="Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Header_Status" Association="Self.FK_Header_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Header" EntitySet="Headers" />
     </AssociationSet>
     <AssociationSet Name="FK_Header_UserCustomer" Association="Self.FK_Header_UserCustomer">
       <End Role="User" EntitySet="Users" />
