@@ -9,7 +9,7 @@
         </div>
         <div class="row">
             <div class="col header">
-                <p>CustomerId</p>
+                <p>Id</p>
             </div>
             <div class="col header">
                 <p>Username</p>

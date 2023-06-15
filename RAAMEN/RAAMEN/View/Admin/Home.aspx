@@ -19,7 +19,7 @@
             </div>
             <div class="row">
                 <div class="col header">
-                    <p>CustomerId</p>
+                    <p>Id</p>
                 </div>
                 <div class="col header">
                     <p>Username</p>
@@ -67,6 +67,40 @@
                     </div>
                 </div>
             <%} %>
+            <%--<table border="1">
+                <tr>
+                    <td>CustomerId</td>
+                    <td>Username</td>
+                    <td>Email</td>
+                    <td>Gender</td>
+                    <td>Password</td>
+                </tr>
+                <%foreach (var x in listUser[i])
+                { %>
+                    <tr>
+                        <td><%= x.Id %></td>
+                        <td><%= x.Username %>e</td>
+                        <td><%= x.Email%></td>
+                        <td><%= x.Gender%></td>
+                        <td>
+                            <% for (int j = 0; j < x.Password.Length; j++)
+                               { %>
+                                    <%if (j == 0)
+                                      {%>
+                                        <p><%=x.Password[j] %></p>
+                                    <%} 
+                                      else if (j == (x.Password.Length-1))
+                                      {%>
+                                        <p><%=x.Password[j] %></p>                    
+                                    <%} 
+                                      else {%>  
+                                        <p>*</p>
+                                    <%} %>
+                            <% } %>
+                        </td>
+                    </tr>
+                <%} %>
+            </table>--%>
         </div>
     <%} %>
 </asp:Content>
