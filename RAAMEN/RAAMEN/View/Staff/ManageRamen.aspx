@@ -44,11 +44,13 @@
                 </div>
                 <div class="col">
                     <%= x.Price %>                    
-                </div>                
+                </div> 
+                <%int testId = x.Id; %>
                 <div class="col">
                     <a href="UpdateRamen.aspx?ramenId=<%= x.Id %>">Update</a>
                     <span>&nbsp;</span> 
                     <a href="ManageRamen.aspx?ramenId=<%= x.Id %>">Delete</a>
+                    <asp:Button ID="testButton" runat="server" Text="Button" OnClick="Button1_Click"/>
                 </div>    
             </div>
         <%} %>
