@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DatabaseRaamenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="RamenId" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="CreatedDate)" Type="date" />
+  </EntityType>
   <EntityType Name="Detail">
     <Key>
       <PropertyRef Name="HeaderId" />
@@ -17,7 +27,7 @@
     <Property Name="CustomerId" Type="int" />
     <Property Name="StaffId" Type="int" />
     <Property Name="Date" Type="date" />
-    <Property Name="StatusId" Type="int" />
+    <Property Name="Status" Type="bit" />
   </EntityType>
   <EntityType Name="Meat">
     <Key>
@@ -40,14 +50,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Name" Type="varchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="Status">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="User">
@@ -61,6 +64,30 @@
     <Property Name="Gender" Type="varchar" MaxLength="50" />
     <Property Name="Password" Type="varchar" MaxLength="50" />
   </EntityType>
+  <Association Name="FK_Cart_Ramen">
+    <End Role="Ramen" Type="Self.Ramen" Multiplicity="1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ramen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="RamenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cart_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Detail_Header">
     <End Role="Header" Type="Self.Header" Multiplicity="1" />
     <End Role="Detail" Type="Self.Detail" Multiplicity="*" />
@@ -82,18 +109,6 @@
       </Principal>
       <Dependent Role="Detail">
         <PropertyRef Name="RamenId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Header_Status">
-    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
-    <End Role="Header" Type="Self.Header" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Status">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Header">
-        <PropertyRef Name="StatusId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -146,13 +161,21 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="DatabaseRaamenModelStoreContainer">
+    <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Detail" EntityType="Self.Detail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Header" EntityType="Self.Header" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Meat" EntityType="Self.Meat" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Ramen" EntityType="Self.Ramen" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Cart_Ramen" Association="Self.FK_Cart_Ramen">
+      <End Role="Ramen" EntitySet="Ramen" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cart_User" Association="Self.FK_Cart_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
     <AssociationSet Name="FK_Detail_Header" Association="Self.FK_Detail_Header">
       <End Role="Header" EntitySet="Header" />
       <End Role="Detail" EntitySet="Detail" />
@@ -160,10 +183,6 @@
     <AssociationSet Name="FK_Detail_Ramen" Association="Self.FK_Detail_Ramen">
       <End Role="Ramen" EntitySet="Ramen" />
       <End Role="Detail" EntitySet="Detail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Header_Status" Association="Self.FK_Header_Status">
-      <End Role="Status" EntitySet="Status" />
-      <End Role="Header" EntitySet="Header" />
     </AssociationSet>
     <AssociationSet Name="FK_Header_UserCustomer" Association="Self.FK_Header_UserCustomer">
       <End Role="User" EntitySet="User" />

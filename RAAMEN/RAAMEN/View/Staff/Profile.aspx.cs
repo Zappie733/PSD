@@ -17,7 +17,8 @@ namespace RAAMEN.View.Staff
         {
             if (!IsPostBack)
             {
-                if(Session["staff_session"] == null)
+                //kenapa ini divalidasi lagi padahal di page master sudah? hal ini karena asp.net akan menjalankan kedua page master dan childnya dan jika pada kasus ini page profile ini mencoba mengakses value dari Session padahal bisa saja User nakal dan mencoba masuk ke page ini melalui ketik link yang dimana tentu saja Session belum tercreate dan akan bervalue null dan akan menyebabkan error. oleh karena itu untuk mencegah hal itu terjadi kita tetap harus validasi juga di page ini sehingga jika memang session blm terbuat ya berarti page ini tidak boleh diakses.
+                if (Session["staff_session"] == null) 
                 {
                     Response.Redirect("../Login.aspx");
                 }

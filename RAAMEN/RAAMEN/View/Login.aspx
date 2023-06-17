@@ -10,10 +10,10 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <label for="username">Username: </label>
+            <label for="usernameTextBox">Username: </label>
             <asp:TextBox ID="usernameTextBox" runat="server"></asp:TextBox>
             <br />
-            <label for="password">Password: </label>           
+            <label for="passwordTextBox">Password: </label>           
             <asp:TextBox ID="passwordTextBox" runat="server"></asp:TextBox>
             <br />
             <asp:CheckBox ID="rememberCheckBox" runat="server" Text=" Remember Me"/>
@@ -22,7 +22,7 @@
             <br />
             <asp:Label ID="errorMessage" runat="server" Text=""></asp:Label>
             <br /><br />
-            <label for="register">Mau Bikin Akun? </label>   
+            <label>Mau Bikin Akun? </label>   
             <asp:LinkButton ID="registerButton" runat="server" OnClick="registerButton_Click">Register</asp:LinkButton>
         </div>
     </form>

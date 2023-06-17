@@ -1,5 +1,5 @@
 CREATE TABLE [dbo].[Role] (
-    [Id]   INT          NOT NULL,
+    [Id]   INT IDENTITY(1,1) NOT NULL,
     [Name] VARCHAR (50) NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
@@ -22,18 +22,22 @@ CREATE TABLE [dbo].[Header] (
     [CustomerId] INT  NULL,
     [StaffId]    INT  NULL,
     [Date]       DATE NULL,
-	[StatusId] INT NULL,
+	[Status] BIT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_Header_UserCustomer] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[User] ([Id]),
-    CONSTRAINT [FK_Header_UserStaff] FOREIGN KEY ([StaffId]) REFERENCES [dbo].[User] ([Id]),
-	CONSTRAINT [FK_Header_Status] FOREIGN KEY ([StatusId]) REFERENCES [dbo].[Status] ([Id])
+    CONSTRAINT [FK_Header_UserStaff] FOREIGN KEY ([StaffId]) REFERENCES [dbo].[User] ([Id])
 );
 
 
-CREATE TABLE [dbo].[Status](
-	[Id]   INT          NOT NULL,
-   	[Name] VARCHAR (50) NULL,
-    	PRIMARY KEY CLUSTERED ([Id] ASC) 
+CREATE TABLE [dbo].[Cart] (
+	[Id]         INT  IDENTITY(1,1) NOT NULL,
+    	[CustomerId] INT NOT NULL,
+	[RamenId] INT NOT NULL,
+    	[Quantity] INT NULL, 
+	[CreatedDate)] Date NULL, 
+    	PRIMARY KEY CLUSTERED ([Id] ASC),
+	CONSTRAINT [FK_Cart_Ramen] FOREIGN KEY ([RamenId]) REFERENCES [dbo].[Ramen]([Id]),
+    	CONSTRAINT [FK_Cart_User] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[User] ([Id])
 );
 
 
@@ -42,7 +46,6 @@ CREATE TABLE [dbo].[Meat] (
     [Name] VARCHAR (50) NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
-
 
 
 CREATE TABLE [dbo].[Ramen] (
@@ -62,14 +65,30 @@ CREATE TABLE [dbo].[Detail]
     [RamenId] INT NOT NULL,
     [Quantity] INT NULL, 
     PRIMARY KEY ([HeaderId], [RamenId]),
-    CONSTRAINT [FK_Detail_Header] FOREIGN KEY ([HeaderId]) REFERENCES [Header]([Id]),
-	CONSTRAINT [FK_Detail_Ramen] FOREIGN KEY ([RamenId]) REFERENCES [Ramen]([Id])
-)
+    CONSTRAINT [FK_Detail_Header] FOREIGN KEY ([HeaderId]) REFERENCES [dbo].[Header]([Id]),
+	CONSTRAINT [FK_Detail_Ramen] FOREIGN KEY ([RamenId]) REFERENCES [dbo].[Ramen]([Id])
+);
 
 
+--------------------------------------------------------------------------------------------
+CREATE TABLE [dbo].[Status](
+	[Id]   INT          NOT NULL,
+   	[Name] VARCHAR (50) NULL,
+    	PRIMARY KEY CLUSTERED ([Id] ASC) 
+);
 
+CREATE TABLE [dbo].[Header] (
+    [Id]         INT  IDENTITY(1,1) NOT NULL,
+    [CustomerId] INT  NULL,
+    [StaffId]    INT  NULL,
+    [Date]       DATE NULL,
+	[StatusId] INT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Header_UserCustomer] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[User] ([Id]),
+    CONSTRAINT [FK_Header_UserStaff] FOREIGN KEY ([StaffId]) REFERENCES [dbo].[User] ([Id]),
+	CONSTRAINT [FK_Header_Status] FOREIGN KEY ([StatusId]) REFERENCES [dbo].[Status] ([Id])
+);
 
-TABEL CART TIDAK JADI DIPAKAI, ALRERNATIFNYA ADALAH MEMBUAT TABEL STATUS UNTUK MEMBEDAKAN HANDLED, UN HANDLED, DAN CART.
 CREATE TABLE [dbo].[Cart] (
     [CustomerId] INT NOT NULL,
     [HeaderId]   INT NOT NULL,

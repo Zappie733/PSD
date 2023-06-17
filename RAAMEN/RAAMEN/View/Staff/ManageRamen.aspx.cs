@@ -20,16 +20,20 @@ namespace RAAMEN.View.Staff
             listRamen = RamenRepository.getAllRamen();
             string ramenId = Request.QueryString["ramenId"];
             string status = Request.QueryString["deleteStatusLabel"];
-
             if (ramenId != null)
             {
                 message = RamenHandler.statusDeleteRamen(int.Parse(ramenId));
                 Response.Redirect("./ManageRamen.aspx?deleteStatusLabel=" + message);
             }
-            if(deleteStatusLabel != null)
+            if(status != null)
             {
-                deleteStatusLabel.Text = status;
+                StatusLabel.Text = status;
             }
+        }
+
+        protected void InsertButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("./InsertRamen.aspx");
         }
     }
 }

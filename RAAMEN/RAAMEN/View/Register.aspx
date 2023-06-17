@@ -11,26 +11,26 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <label for="username">Username: </label>
+            <label for="usernameTextBox">Username: </label>
             <asp:TextBox ID="usernameTextBox" runat="server"></asp:TextBox>
             <br />
-            <label for="email">Email: </label>
+            <label for="emailTextBox">Email: </label>
             <asp:TextBox ID="emailTextBox" runat="server"></asp:TextBox>
             <br />
-            <label for="gender">Gender: </label>
+            <label for="genderDropDownList">Gender: </label>
             <asp:DropDownList ID="genderDropDownList" runat="server">
                 <asp:ListItem Text="Select Gender" Value=""></asp:ListItem>
                 <asp:ListItem Text="Male" Value="male"></asp:ListItem>
                 <asp:ListItem Text="Female" Value="female"></asp:ListItem>
             </asp:DropDownList>
             <br />
-            <label for="password">Password: </label>
+            <label for="passwordTextBox">Password: </label>
             <asp:TextBox ID="passwordTextBox" runat="server" TextMode="Password"></asp:TextBox>
             <br />
-            <label for="confirmPassword">Confirm Password: </label>
+            <label for="confirmPasswordTextBox">Confirm Password: </label>
             <asp:TextBox ID="confirmPasswordTextBox" runat="server" TextMode="Password"></asp:TextBox>
             <br />
-            <label for="userRole">Choose your role: </label>
+            <label for="userRoleDropDownList">Choose your role: </label>
             <asp:DropDownList ID="userRoleDropDownList" runat="server">
                 <asp:ListItem Text="Select Role" Value=""></asp:ListItem>
                 <asp:ListItem Text="Customer" Value="customer"></asp:ListItem>
@@ -41,7 +41,7 @@
             <br />
             <asp:Label ID="errorMessage" runat="server" Text=""></asp:Label>
             <br /><br />
-            <label for="register">Already have an account? </label>   
+            <label>Already have an account? </label>   
             <asp:LinkButton ID="loginButton" runat="server" OnClick="loginButton_Click">Login</asp:LinkButton>
         </div>
     </form>

@@ -47,13 +47,16 @@
                 </div>                
                 <div class="col">
                     <a href="UpdateRamen.aspx?ramenId=<%= x.Id %>">Update</a>
+                    <span>&nbsp;</span> 
                     <a href="ManageRamen.aspx?ramenId=<%= x.Id %>">Delete</a>
                 </div>    
             </div>
         <%} %>
        
         <div class ="row">
-            <asp:Label ID="deleteStatusLabel" runat="server" Text="" ForeColor="Red"></asp:Label>
+            <asp:Label ID="StatusLabel" runat="server" Text="" ForeColor="Red"></asp:Label>
         </div>
+        <br /><br />
+        <asp:Button ID="InsertButton" runat="server" Text="Insert Ramen" OnClick="InsertButton_Click" />
     </div>
 </asp:Content>

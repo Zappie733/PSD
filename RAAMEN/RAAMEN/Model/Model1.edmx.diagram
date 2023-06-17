@@ -4,17 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="12bf3e8c38e64464adf44f087d296afc" Name="Diagram1">
-        <EntityTypeShape EntityType="DatabaseRaamenModel.Detail" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseRaamenModel.Header" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseRaamenModel.Meat" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseRaamenModel.Ramen" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseRaamenModel.Role" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseRaamenModel.Status" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseRaamenModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+      <Diagram DiagramId="a3ae200bf14b455ab1f1be85ed2f2783" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="DatabaseRaamenModel.Cart" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRaamenModel.Detail" Width="1.5" PointX="8" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRaamenModel.Header" Width="1.5" PointX="5.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRaamenModel.Meat" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRaamenModel.Ramen" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRaamenModel.Role" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRaamenModel.User" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <AssociationConnector Association="DatabaseRaamenModel.FK_Cart_Ramen" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseRaamenModel.FK_Cart_User" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseRaamenModel.FK_Detail_Header" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseRaamenModel.FK_Detail_Ramen" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseRaamenModel.FK_Header_Status" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseRaamenModel.FK_Header_UserCustomer" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseRaamenModel.FK_Header_UserStaff" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseRaamenModel.FK_Ramen_Meat" ManuallyRouted="false" />

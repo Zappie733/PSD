@@ -38,7 +38,7 @@
             </tr>
             <tr>
                 <td>
-                    <label for="genderTextBox">Gender</label>
+                    <label for="genderDropDownList">Gender</label>
                 </td>
                 <td>
                     <asp:DropDownList ID="genderDropDownList" runat="server" Enabled="false">
