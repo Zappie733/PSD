@@ -79,6 +79,7 @@
     <Content Include="App_Data\DatabaseRaamen_log.ldf">
       <DependentUpon>DatabaseRaamen.mdf</DependentUpon>
     </Content>
+    <Content Include="Images\Ramen_1.jfif" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -92,6 +93,7 @@
     <Content Include="Styling\Admin\Home.css" />
     <Content Include="Styling\Admin\ManageRamen.css" />
     <Content Include="Styling\Admin\Master.css" />
+    <Content Include="Styling\Customer\OrderRamen.css" />
     <Content Include="Styling\Login.css" />
     <Content Include="Styling\Customer\Home.css" />
     <Content Include="Styling\Customer\Master.css" />
