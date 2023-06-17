@@ -1,0 +1,46 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-color: lightgray;
+}
+
+.judul-ramen {
+    padding: 40px 100px;
+    font-size: 35px;
+}
+
+.view-ramen {
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+    grid-auto-rows: 350px;
+    grid-row-gap: 50px;
+    grid-column-gap: 50px;
+    justify-content: center;
+}
+
+.sec {
+    justify-content: center;
+    background: rgb(255 216 0);
+}
+
+.img-ramen {
+    max-width: 100%;
+}
+
+.detail-ramen {
+    padding: 10px;
+    font-size: 14px;
+}
+
+    .detail-ramen .nama-ramen {
+        font-size: 20px;
+    }
+
+.button-sec {
+    display: flex;
+    justify-content: space-evenly;
+}
