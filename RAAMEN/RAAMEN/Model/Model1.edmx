@@ -13,7 +13,7 @@
           <Property Name="CustomerId" Type="int" Nullable="false" />
           <Property Name="RamenId" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" />
-          <Property Name="CreatedDate)" Type="date" />
+          <Property Name="CreatedDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Detail">
           <Key>
@@ -31,7 +31,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CustomerId" Type="int" />
           <Property Name="StaffId" Type="int" />
-          <Property Name="Date" Type="date" />
+          <Property Name="Date" Type="datetime" />
           <Property Name="Status" Type="bit" />
         </EntityType>
         <EntityType Name="Meat">
@@ -219,7 +219,7 @@
           <Property Name="CustomerId" Type="Int32" Nullable="false" />
           <Property Name="RamenId" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Ramen" Relationship="Self.FK_Cart_Ramen" FromRole="Cart" ToRole="Ramen" />
           <NavigationProperty Name="User" Relationship="Self.FK_Cart_User" FromRole="Cart" ToRole="User" />
         </EntityType>
@@ -241,7 +241,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CustomerId" Type="Int32" />
           <Property Name="StaffId" Type="Int32" />
-          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
           <Property Name="Status" Type="Boolean" />
           <NavigationProperty Name="Details" Relationship="Self.FK_Detail_Header" FromRole="Header" ToRole="Detail" />
           <NavigationProperty Name="User" Relationship="Self.FK_Header_UserCustomer" FromRole="Header" ToRole="User" />
@@ -441,7 +441,7 @@
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="RamenId" ColumnName="RamenId" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate)" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

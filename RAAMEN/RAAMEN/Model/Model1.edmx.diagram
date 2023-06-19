@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a3ae200bf14b455ab1f1be85ed2f2783" Name="Diagram1" ZoomLevel="86">
+      <Diagram DiagramId="f2cc6eb56e4c40a2898629a07b66a066" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="DatabaseRaamenModel.Cart" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseRaamenModel.Detail" Width="1.5" PointX="8" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseRaamenModel.Header" Width="1.5" PointX="5.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRaamenModel.Detail" Width="1.5" PointX="7.5" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRaamenModel.Header" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseRaamenModel.Meat" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseRaamenModel.Ramen" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseRaamenModel.Role" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />

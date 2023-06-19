@@ -8,7 +8,7 @@
     <Property Name="CustomerId" Type="int" Nullable="false" />
     <Property Name="RamenId" Type="int" Nullable="false" />
     <Property Name="Quantity" Type="int" />
-    <Property Name="CreatedDate)" Type="date" />
+    <Property Name="CreatedDate" Type="datetime" />
   </EntityType>
   <EntityType Name="Detail">
     <Key>
@@ -26,7 +26,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CustomerId" Type="int" />
     <Property Name="StaffId" Type="int" />
-    <Property Name="Date" Type="date" />
+    <Property Name="Date" Type="datetime" />
     <Property Name="Status" Type="bit" />
   </EntityType>
   <EntityType Name="Meat">
