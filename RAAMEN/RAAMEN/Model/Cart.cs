@@ -18,7 +18,7 @@ namespace RAAMEN.Model
         public int CustomerId { get; set; }
         public int RamenId { get; set; }
         public Nullable<int> Quantity { get; set; }
-        public Nullable<System.DateTime> CreatedDate_ { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
     
         public virtual Ramen Ramen { get; set; }
         public virtual User User { get; set; }

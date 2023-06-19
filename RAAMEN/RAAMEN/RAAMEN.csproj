@@ -93,7 +93,12 @@
     <Content Include="Styling\Admin\Home.css" />
     <Content Include="Styling\Admin\ManageRamen.css" />
     <Content Include="Styling\Admin\Master.css" />
+    <Content Include="Styling\Admin\OrderQueue.css" />
+    <Content Include="Styling\Admin\Transaction.css" />
+    <Content Include="Styling\Admin\TransactionDetail.css" />
     <Content Include="Styling\Customer\OrderRamen.css" />
+    <Content Include="Styling\Customer\Transaction.css" />
+    <Content Include="Styling\Customer\TransactionDetail.css" />
     <Content Include="Styling\Login.css" />
     <Content Include="Styling\Customer\Home.css" />
     <Content Include="Styling\Customer\Master.css" />
@@ -109,11 +114,13 @@
     <Content Include="View\Admin\Profile.aspx" />
     <Content Include="View\Admin\Report.aspx" />
     <Content Include="View\Admin\Transaction.aspx" />
+    <Content Include="View\Admin\TransactionDetail.aspx" />
     <Content Include="View\Admin\UpdateRamen.aspx" />
     <Content Include="View\Customer\Home.aspx" />
     <Content Include="View\Customer\OrderRamen.aspx" />
     <Content Include="View\Customer\Profile.aspx" />
     <Content Include="View\Customer\Transaction.aspx" />
+    <Content Include="View\Customer\TransactionDetail.aspx" />
     <Content Include="View\Login.aspx" />
     <Content Include="View\Register.aspx" />
     <Content Include="View\Staff\Home.aspx" />
@@ -132,6 +139,7 @@
     <Compile Include="Factory\RamenFactory.cs" />
     <Compile Include="Factory\UserFactory.cs" />
     <Compile Include="Handler\LoginHandler.cs" />
+    <Compile Include="Handler\OrderHandler.cs" />
     <Compile Include="Handler\RamenHandler.cs" />
     <Compile Include="Handler\RegisterHandler.cs" />
     <Compile Include="Handler\UserHandler.cs" />
@@ -234,6 +242,13 @@
     <Compile Include="View\Admin\Transaction.aspx.designer.cs">
       <DependentUpon>Transaction.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\Admin\TransactionDetail.aspx.cs">
+      <DependentUpon>TransactionDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Admin\TransactionDetail.aspx.designer.cs">
+      <DependentUpon>TransactionDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\Admin\UpdateRamen.aspx.cs">
       <DependentUpon>UpdateRamen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -268,6 +283,13 @@
     </Compile>
     <Compile Include="View\Customer\Transaction.aspx.designer.cs">
       <DependentUpon>Transaction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\TransactionDetail.aspx.cs">
+      <DependentUpon>TransactionDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Customer\TransactionDetail.aspx.designer.cs">
+      <DependentUpon>TransactionDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

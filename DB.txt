@@ -21,7 +21,7 @@ CREATE TABLE [dbo].[Header] (
     [Id]         INT  IDENTITY(1,1) NOT NULL,
     [CustomerId] INT  NULL,
     [StaffId]    INT  NULL,
-    [Date]       DATE NULL,
+    [Date]       DATETIME NULL,
 	[Status] BIT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_Header_UserCustomer] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[User] ([Id]),
@@ -34,7 +34,7 @@ CREATE TABLE [dbo].[Cart] (
     	[CustomerId] INT NOT NULL,
 	[RamenId] INT NOT NULL,
     	[Quantity] INT NULL, 
-	[CreatedDate)] Date NULL, 
+	[CreatedDate)] DATETIME NULL, 
     	PRIMARY KEY CLUSTERED ([Id] ASC),
 	CONSTRAINT [FK_Cart_Ramen] FOREIGN KEY ([RamenId]) REFERENCES [dbo].[Ramen]([Id]),
     	CONSTRAINT [FK_Cart_User] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[User] ([Id])

@@ -37,7 +37,7 @@
                 </div>
                 <div class="col"><%=order.Date %></div>
                 <div class="col">
-                    <asp:Button ID="handleButton" runat="server" Text="Button" OnClick="handleButton_Click" />
+                    <a href="./OrderQueue.aspx?orderId=<%=order.Id %>">Handle</a>
                 </div>
             </div>
             <%index++; %>
@@ -69,7 +69,7 @@
             <div class="row">
                 <div class="col"><%= order.Id %></div>
                 <div class="col"><%= order.CustomerId %></div>
-                <div class="col"><%= order.User.Username%></div>
+                <div class="col"><%= order.User1.Username%></div>
                 <div class="colKhusus">
                     <%foreach (var detail in listDetailOrderHandled[index])
                         {%>
@@ -83,6 +83,5 @@
             </div>
             <%index++;%>
         <%} %>
-        
     </div>
 </asp:Content>

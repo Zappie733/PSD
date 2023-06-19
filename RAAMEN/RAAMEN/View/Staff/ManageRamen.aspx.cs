@@ -15,7 +15,6 @@ namespace RAAMEN.View.Staff
         //public List<Ramen> listRamen { get; set; }
         public List<Ramen> listRamen = new List<Ramen>();
         private string message;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             listRamen = RamenRepository.getAllRamen();
@@ -30,17 +29,11 @@ namespace RAAMEN.View.Staff
             {
                 StatusLabel.Text = status;
             }
-            
         }
 
         protected void InsertButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("./InsertRamen.aspx");
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("./InsertRamen.aspx?");
         }
     }
 }

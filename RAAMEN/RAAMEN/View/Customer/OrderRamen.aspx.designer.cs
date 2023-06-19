@@ -15,22 +15,40 @@ namespace RAAMEN.View.Customer
     {
 
         /// <summary>
-        /// DropDownListQuantity control.
+        /// dropDownListQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListQuantity;
+        protected global::System.Web.UI.WebControls.DropDownList dropDownListQuantity;
 
         /// <summary>
-        /// CheckBox1 control.
+        /// AddToCartButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
+        protected global::System.Web.UI.WebControls.Button AddToCartButton;
+
+        /// <summary>
+        /// statusLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label statusLabel;
+
+        /// <summary>
+        /// clearButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button clearButton;
 
         /// <summary>
         /// orderButton control.
@@ -42,21 +60,12 @@ namespace RAAMEN.View.Customer
         protected global::System.Web.UI.WebControls.Button orderButton;
 
         /// <summary>
-        /// cartButton control.
+        /// cartStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button cartButton;
-
-        /// <summary>
-        /// selectedRamenLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label selectedRamenLabel;
+        protected global::System.Web.UI.WebControls.Label cartStatus;
     }
 }

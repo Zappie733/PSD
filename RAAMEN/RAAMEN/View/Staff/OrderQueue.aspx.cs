@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using RAAMEN.Model;
 using RAAMEN.Repository;
+using RAAMEN.Handler;
 
 namespace RAAMEN.View.Staff
 {
@@ -15,7 +16,8 @@ namespace RAAMEN.View.Staff
         public List<Header> listOrderHandled = new List<Header>();
         public List<List<Detail>> listDetailOrderUnhandled = new List<List<Detail>>();
         public List<List<Detail>> listDetailOrderHandled = new List<List<Detail>>();
-        
+        private string message;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             listOrderUnhandled = OrderRepository.getListOrderByStatus(false);
@@ -36,11 +38,27 @@ namespace RAAMEN.View.Staff
 
                 listDetailOrderHandled.Add(detailOrder);
             }
-        }
 
-        protected void handleButton_Click(object sender, EventArgs e)
-        {
-            
+            if (Session["staff_session"] == null)
+            {
+                Response.Redirect("../Login.aspx");
+            }
+
+            string username = ((User)Session["staff_session"]).Username;
+            string password = ((User)Session["staff_session"]).Password;
+
+            string orderId = Request.QueryString["orderId"];
+            string status = Request.QueryString["orderStatus"];
+
+            if (orderId != null)
+            {
+                message = OrderHandler.handlerOrder(orderId, username, password);
+                Response.Redirect("./OrderQueue.aspx?orderStatus=" + message);
+            }
+            if (status != null)
+            {
+                StatusLabel.Text = status;
+            }
         }
     }
 }

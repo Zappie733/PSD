@@ -1,46 +1,96 @@
-﻿* {
-    margin: 0;
-    padding: 0;
+﻿.container {
+    padding: 10px 100px;
 }
 
-body {
-    min-height: 100vh;
+.container .ramen{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+.container .ramen .item{
+    display:flex;
+    flex-direction:column;
+    padding: 15px;
+    border: 3px double white;
+    background-color: rgba(0,0,0,0.2);
+    box-shadow: 5px 5px rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+.container .ramen .item img{
+    width:100%;
+}
+.container .ramen .item .detail-ramen {
+    display:flex;
+    flex-direction:column;
+}
+.container .ramen .item .detail-ramen .name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:center;
+    font-size: 25px;
+    color:white;
+    margin-bottom:10px;
     background-color: lightgray;
 }
-
-.judul-ramen {
-    padding: 40px 100px;
-    font-size: 35px;
+.container .ramen .item .detail-ramen .detail p{
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+.container .ramen .item .detail-ramen .order {
+   display:flex;
+   flex-direction:row;
+   justify-content:space-between;
+   align-items:center;
+}
+.container .ramen .item .detail-ramen .order .select{
+    font-size: 16px;
+}
+.container .ramen .item .detail-ramen .order .cart{
+    padding:7px 16px;
+    background-color:gray;
+    border-radius:5px;
+    font-size: 16px;
+}
+.container .ramen .item .detail-ramen .order .cart:hover{
+    opacity:0.7;
+}
+.container .ramen .item .detail-ramen .order .cart:active{
+    opacity:0.5;
+}
+.container .ramen .item .detail-ramen .order .cart a{
+    text-decoration: none;
+    color: white;
+}
+.container .ramen .item .detail-ramen .order .cart a:hover{
+    color: yellow;
 }
 
-.view-ramen {
-    display: grid;
-    grid-template-columns: repeat(4, 300px);
-    grid-auto-rows: 350px;
-    grid-row-gap: 50px;
-    grid-column-gap: 50px;
-    justify-content: center;
+
+.container .title{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    text-align:center;
+    font-size: 25px;
+    background-color:gray;
+    margin-bottom:10px;
+    color:white;
 }
-
-.sec {
-    justify-content: center;
-    background: rgb(255 216 0);
+.container .row{
+    display:flex;
+    flex-direction:row;
 }
-
-.img-ramen {
-    max-width: 100%;
+.container .row .col{
+    flex:1;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    border:1px solid black;
+    background-color: white;
 }
-
-.detail-ramen {
-    padding: 10px;
-    font-size: 14px;
-}
-
-    .detail-ramen .nama-ramen {
-        font-size: 20px;
-    }
-
-.button-sec {
-    display: flex;
-    justify-content: space-evenly;
+.container .row .header{
+    font-weight:700;
+    font-size:18px;
 }

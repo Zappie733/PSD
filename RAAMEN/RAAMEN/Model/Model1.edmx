@@ -219,7 +219,7 @@
           <Property Name="CustomerId" Type="Int32" Nullable="false" />
           <Property Name="RamenId" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" />
-          <Property Name="CreatedDate_" Type="DateTime" Precision="0" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Ramen" Relationship="Self.FK_Cart_Ramen" FromRole="Cart" ToRole="Ramen" />
           <NavigationProperty Name="User" Relationship="Self.FK_Cart_User" FromRole="Cart" ToRole="User" />
         </EntityType>
@@ -441,7 +441,7 @@
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="RamenId" ColumnName="RamenId" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="CreatedDate_" ColumnName="CreatedDate)" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate)" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
